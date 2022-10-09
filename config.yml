@@ -1,0 +1,12 @@
+server:
+  http:
+    port: 3000
+    # test, debug, release
+    mode: debug
+
+logger:
+  level: debug
+  format: console
+  disable-caller: false
+  service-name: 'Facilitator'
+  development: true
