@@ -1,13 +1,14 @@
 package httpServer
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/zhaochy1990/x/logger"
-	"net/http"
 )
 
 type CreateTaskRequest struct {
-	Type   string `binding:"required" json:"type" form:"type,default=simple"`
+	Name   string `binding:"required" json:"name"`
 	Params []string
 }
 
@@ -19,7 +20,7 @@ func createTask(c *gin.Context) {
 		return
 	}
 
-	logger.S().Infof("create task with type: %s, params: %v", req.Type, req.Params)
+	logger.S().Infof("create task with name: %s, params: %v", req.Name, req.Params)
 
 	c.JSON(http.StatusOK, gin.H{})
 }
